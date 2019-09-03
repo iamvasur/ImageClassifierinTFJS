@@ -1,0 +1,129 @@
+<html>
+    <head>
+       <title>Make Money with Machine Learning Course Work</title> 
+       <link href="https://fonts.googleapis.com/css?family=Slabo+27px&display=swap" rel="stylesheet"> 
+       <link href="https://fonts.googleapis.com/css?family=Titillium+Web&display=swap" rel="stylesheet"> 
+       <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.2/css/bootstrap.min.css" integrity="sha384-Smlep5jCw/wG7hdkwQ/Z5nLIefveQRIY9nfy6xoR1uRYBtpZgI6339F5dgvm/e9B" crossorigin="anonymous">
+       <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+       <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32.png">
+       <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16.png">
+       <link rel="manifest" href="/site.webmanifest">
+       <style>
+         * { font-family: 'Slabo 27px', serif; }
+	 .logo { 
+		font-family: 'Titillium Web', sans-serif; 
+		font-weight: bold;
+		font-size: 23px;
+		background-color: #222;
+		float: left;
+		padding: .5em;
+		padding-top: 0.5em;
+    		padding-right: 0.5em;
+    		padding-bottom: 0.5em;
+    		padding-left: 0.5em;
+		color: #e6e6e6;
+		text-transform: uppercase;
+	}
+        .heading h1 {
+		font-size: 1.5rem;
+		line-height: 2em;	
+		/* text-indent: 1em; */
+                text-indent: -10em;
+                text-align: center;
+        }
+        .container {
+		box-shadow: 0px 0px 15px -5px #ccc;
+		padding: 1.5em;
+        }
+        .container > p { font-size: 1.1em; }
+        .progress { 
+		display: none; 
+		font-size: 1.1em;
+		padding: .5em;
+		font-weight: bold;
+		text-transform: uppercase;
+		height: auto;
+	}
+        .model-selector-container { padding: 0.5em; }
+        .results { width: 100%; }
+	.results > div > h2,
+	.image { 
+		text-align: center;
+	}
+	.results > div > h2 { line-height: 2em;}
+        .result { border-left: 1px solid }
+        .result ol { font-size: 1.2 em }
+	#selected-image { max-width: 35em; }	
+	footer {    
+		position: fixed;
+    		bottom: 0;
+    		text-align: right;
+    		width: 100%;
+    		right: 5px;
+    		font-weight: bold;
+    		font-size: 1.2em;
+	}	
+       </style>
+    </head>
+
+
+
+    <body>
+
+<main>
+   <header>
+ 	<div class="logo">Machine Learning Courses</div>
+	<div class="heading"><h1>Image Classification</h1></div>
+   </header>
+    <div class="container mt-5">
+        <p>Image classifier using <span style="font-weight: bold;">Tensorflow.js</span> (a javascript library)</p>
+        <div class="row">
+            <div class="col-12">
+                <div class="progress model-progress progress-bar progress-bar-striped progress-bar-animated mb-2"></div>
+            </div>
+        </div>
+<div class="row model-selector-container">
+    <div class="col-3">
+        <select id="model-selector" class="custom-select" >
+            <option selected enabled>Select Model </option>
+            <option value="mobilenet">mobilenet</option>
+            <option value="vgg">vgg (large - will take awhile)</option>    
+
+            </select>
+    </div>
+</div>
+
+        <div class="row">
+	    <div class="col-6">
+	         <input id ="image-selector" class="form-control border-0" type="file">
+	    </div>
+            <div class="col-6">
+                <button id="predict-button" class="btn btn-dark float-right">Predict</button>
+            </div>
+        </div>
+     </div>
+        <div class="row results">       
+            <div class="col-6 image">
+                <h2 class="ml-3">Image</h2>		
+                <img id="selected-image" class="ml-3" src="">
+            </div>
+	    <div class="col-6 result">
+		<h2 class="ml-3">Results</h2>
+		<div class="predict-progress progress progress-bar progress-bar-striped progress-bar-animated mb-2"></div>
+                <h2 class="ml-3"Prediction></h2>
+                <ol id="prediction-list"></ol>
+            </div>
+        </div>
+    </div>
+    <footer>&copy; Vasu Ranganathan</footer>
+</main>
+
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@1.2.7"> </script>
+
+<script src="imagenet_classes.js"></script>
+<script src="predict.js"></script>
+
+    </body>
+</html>
